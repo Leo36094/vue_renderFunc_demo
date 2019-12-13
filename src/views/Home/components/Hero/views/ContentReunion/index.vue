@@ -5,8 +5,8 @@
       :remote="true"
       :remoteMethod="remoteMethod"
       :options="remoteFileterOption"
-      placeholder="輸入關鍵字搜尋"
       :loading="loading"
+      placeholder="輸入關鍵字搜尋"
     />
     Search reunion place
   </div>
@@ -32,6 +32,7 @@ export default {
         this.loading = true
         setTimeout(() => {
           this.loading = false
+
           this.remoteFileterOption = this.remoteList.filter(item => {
             return item.label.toLowerCase().indexOf(query.toLowerCase()) > -1
           })
@@ -39,13 +40,13 @@ export default {
       } else {
         this.remoteFileterOption = []
       }
-    },
-    mounted () {
-      this.remoteList = this.fakeList.map((item, index) => ({
-        label: item,
-        value: index
-      }))
     }
+  },
+  mounted () {
+    this.remoteList = this.fakeList.map((item, index) => ({
+      label: item,
+      value: index
+    }))
   },
   components: {
     ElSelect
