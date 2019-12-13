@@ -1,4 +1,5 @@
 <script>
+import { colorValidator, fontSizeValidator } from '../utils'
 export default {
   functional: true,
   props: {
@@ -7,20 +8,16 @@ export default {
       default: () => 'Please insert message',
     },
     size: {
-      validator: value => {
-        // The value must match one of these strings
-        return ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(value) !== -1
-      },
+      validator: value => fontSizeValidator(value),
       default: () => 'sm',
     },
     color: {
-      validator: value => {
-        // The value must match one of these strings
-        return (
-          ['primary', 'primary-light', 'primary-dark', 'danger', 'warn', 'gray-darkest', 'gray-darker', 'gray-white'].indexOf(value) !== -1
-        )
-      },
+      validator: value => colorValidator(value),
       default: () => 'gray-darkest',
+    },
+    isBlock: {
+      type: Boolean,
+      default: false,
     },
     element: {
       type: String,
@@ -32,12 +29,13 @@ export default {
     }
   },
   render (h, context) {
-    const { color, size, element, msg, customStyle } = context.props
+    const { color, size, element, isBlock, msg, customStyle } = context.props
 
     return h(element, {
       attrs: {
         'data-color': color,
         'data-size': size,
+        'data-is-block': isBlock,
       },
       style: {
         ...customStyle

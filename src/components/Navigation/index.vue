@@ -17,14 +17,18 @@
         </li>
       </ul>
       <TypographyText msg="天天抽iPhone11" color="danger" size="md" />
-      <TypographyText msg="累積積分換 7-11 禮卷" color="gray-white" size="xs" :customStyle="{backgroundColor: 'purple'}" />
+      <TypographyText
+        msg="累積積分換 7-11 禮卷"
+        color="gray-white"
+        size="xs"
+        :customStyle="{ backgroundColor: 'purple' }"
+      />
     </div>
     <ul class="nav__right-list">
       <li v-for="(item, index) in memberList" :key="index">
         <TypographyText :color="item.color" :msg="item.msg" />
       </li>
     </ul>
-    <TypographyText color="gray-darker" msg="item.msg" />
   </header>
 </template>
 
@@ -40,48 +44,48 @@ export default {
           msg: '找場地',
           link: '/about',
           fontSize: 'xs',
-          image: null,
+          image: null
         },
         {
           msg: '發案大廳',
-          link: '/about',
+          link: '/',
           fontSize: 'sm',
-          image: null,
+          image: null
         },
         {
           msg: null,
           link: '/about',
           fontSize: 'sm',
-          image: require('../../assets/images/double-eleven.png'),
+          image: require('../../assets/images/double-eleven.png')
         }
       ],
       memberList: [
         {
           msg: '成為場地主',
           link: '/about',
-          color: 'gray-darkest',
+          color: 'gray-darkest'
         },
         {
           msg: '常見問題',
           link: '/about',
-          color: 'gray-darkest',
+          color: 'gray-darkest'
         },
         {
           msg: '註冊',
           link: '/about',
-          color: 'primary',
+          color: 'primary'
         },
         {
           msg: '登入',
           link: '/about',
-          color: 'primary',
+          color: 'primary'
         }
-      ],
+      ]
     }
   },
   components: {
-    TypographyText,
-  },
+    TypographyText
+  }
 }
 </script>
 

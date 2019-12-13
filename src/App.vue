@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Navigation />
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-    </div>
+    <Navigation />
     <router-view/>
   </div>
 </template>
@@ -21,6 +17,6 @@ export default {
 
 <style lang="scss">
 #app {
-  color: $color-primary;
+  width: 100%;
 }
 </style>
